@@ -1,9 +1,9 @@
 package com.project.mvvm_app.api
 
 import com.project.mvvm_app.models.Categories
-import com.project.mvvm_app.models.MealDetails
+import com.project.mvvm_app.models.Meal
 import com.project.mvvm_app.models.Meals
-import com.project.mvvm_app.models.MealsFilter
+import com.project.mvvm_app.models.MealsResults
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,15 +11,15 @@ interface ApiService {
     @GET("categories.php")
     suspend fun getCategories(): Categories
 
-    @GET("lookup.php?i={mealId}")
-    suspend fun getMealsById(@Query("mealId") mealId: String): MealDetails
+    @GET("lookup.php")
+    suspend fun getMealsById(@Query("i") mealId: String): Meal
 
-    @GET("search.php?s={mealName}")
-    suspend fun getMealsByName(@Query("mealName") mealName: String): Meals
+    @GET("search.php")
+    suspend fun getMealsByName(@Query("s") mealName: String): Meals
 
-    @GET("filter.php?c={categoryName}")
-    suspend fun filterMealsByCategory(@Query("categoryName") categoryName: String): MealsFilter
+    @GET("filter.php")
+    suspend fun filterMealsByCategory(@Query("c") categoryName: String): MealsResults
 
-    @GET("filter.php?i={mainIngredient}")
-    suspend fun filterByMainIngredient(@Query("mainIngredient") mainIngredient: String): MealsFilter
+    @GET("filter.php")
+    suspend fun filterByMainIngredient(@Query("i") mainIngredient: String): MealsResults
 }

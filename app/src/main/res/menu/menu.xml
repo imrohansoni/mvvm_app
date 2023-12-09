@@ -12,7 +12,7 @@
         android:title="Favorites" />
 
     <item
-        android:id="@+id/categoriesFragment"
-        android:icon="@drawable/orange_slice"
-        android:title="Categories" />
+        android:id="@+id/cartFragment"
+        android:icon="@drawable/shopping_cart"
+        android:title="Cart" />
 </menu>
