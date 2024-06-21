@@ -1,26 +1,43 @@
 package com.project.mvvm_app.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.project.mvvm_app.R
-import com.project.mvvm_app.models.Categories
-import com.project.mvvm_app.viewHolders.CategoryViewHolder
+import com.bumptech.glide.Glide
+import com.project.mvvm_app.databinding.MealCategoryBinding
+import com.project.mvvm_app.models.Category
+
 
 class CategoriesAdapter(
-    private val categories: Categories, private val clickListener: (categoryName: String) -> Unit
-) : RecyclerView.Adapter<CategoryViewHolder>() {
+    private val categories: List<Category>,
+    private val clickListener: (categoryName: String) -> Unit
+) : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+
+    private lateinit var binding: MealCategoryBinding
+
+    inner class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        fun bind(category: Category, clickListener: (categoryId: String) -> Unit) {
+            Glide.with(itemView.context).load(category.thumb).into(binding.categoryImage)
+            binding.categoryName.text = category.category
+            binding.categoryConstraintLayout.setOnClickListener {
+                clickListener(category.id)
+            }
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.meal_category, parent, false)
-        return CategoryViewHolder(view)
+        binding = MealCategoryBinding.inflate(inflater, parent, false)
+        return CategoryViewHolder(binding.root)
     }
 
     override fun getItemCount(): Int {
-        return categories.categories.size
+        return categories.size
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(categories.categories[position], clickListener)
+        holder.bind(categories[position], clickListener)
     }
 }

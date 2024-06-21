@@ -1,8 +1,14 @@
 package com.project.mvvm_app.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Category(
-    val idCategory: String,
-    val strCategory: String,
-    val strCategoryDescription: String,
-    val strCategoryThumb: String
+    @SerializedName("idCategory")
+    val id: String,
+    @SerializedName("strCategory")
+    val category: String,
+    @SerializedName("strCategoryDescription")
+    val description: String,
+    @SerializedName("strCategoryThumb")
+    val thumb: String
 )

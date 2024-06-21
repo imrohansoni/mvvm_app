@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/mealImage"
+            android:id="@+id/meal_image"
             android:layout_width="200dp"
             android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/mealName"
+            android:id="@+id/meal_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
@@ -26,7 +26,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mealImage" />
+            app:layout_constraintTop_toBottomOf="@id/meal_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -15,9 +15,6 @@
         android:theme="@style/Theme.Mvvm_app"
         tools:targetApi="31">
         <activity
-            android:name=".MealsResultActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
